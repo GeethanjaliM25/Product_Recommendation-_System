@@ -17,7 +17,12 @@ import { Route as ResetPasswordRouteImport } from './routes/reset-password'
 import { Route as AuthenticatedAnalyticsRouteImport } from './routes/_authenticated/analytics'
 import { Route as AuthenticatedDashboardRouteImport } from './routes/_authenticated/dashboard'
 import { Route as AuthenticatedHistoryRouteImport } from './routes/_authenticated/history'
+import { Route as AuthenticatedModelRouteImport } from './routes/_authenticated/model'
+import { Route as AuthenticatedPopularProductsRouteImport } from './routes/_authenticated/popular-products'
+import { Route as AuthenticatedProfileRouteImport } from './routes/_authenticated/profile'
 import { Route as AuthenticatedRecommendRouteImport } from './routes/_authenticated/recommend'
+import { Route as AuthenticatedReportsRouteImport } from './routes/_authenticated/reports'
+import { Route as AuthenticatedSettingsRouteImport } from './routes/_authenticated/settings'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -58,9 +63,35 @@ const AuthenticatedHistoryRoute = AuthenticatedHistoryRouteImport.update({
   path: '/history',
   getParentRoute: () => AuthenticatedRouteRoute,
 } as any)
+const AuthenticatedModelRoute = AuthenticatedModelRouteImport.update({
+  id: '/model',
+  path: '/model',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedPopularProductsRoute =
+  AuthenticatedPopularProductsRouteImport.update({
+    id: '/popular-products',
+    path: '/popular-products',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
+const AuthenticatedProfileRoute = AuthenticatedProfileRouteImport.update({
+  id: '/profile',
+  path: '/profile',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
 const AuthenticatedRecommendRoute = AuthenticatedRecommendRouteImport.update({
   id: '/recommend',
   path: '/recommend',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedReportsRoute = AuthenticatedReportsRouteImport.update({
+  id: '/reports',
+  path: '/reports',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedSettingsRoute = AuthenticatedSettingsRouteImport.update({
+  id: '/settings',
+  path: '/settings',
   getParentRoute: () => AuthenticatedRouteRoute,
 } as any)
 
@@ -72,7 +103,12 @@ export interface FileRoutesByFullPath {
   '/analytics': typeof AuthenticatedAnalyticsRoute
   '/dashboard': typeof AuthenticatedDashboardRoute
   '/history': typeof AuthenticatedHistoryRoute
+  '/model': typeof AuthenticatedModelRoute
+  '/popular-products': typeof AuthenticatedPopularProductsRoute
+  '/profile': typeof AuthenticatedProfileRoute
   '/recommend': typeof AuthenticatedRecommendRoute
+  '/reports': typeof AuthenticatedReportsRoute
+  '/settings': typeof AuthenticatedSettingsRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -82,7 +118,12 @@ export interface FileRoutesByTo {
   '/analytics': typeof AuthenticatedAnalyticsRoute
   '/dashboard': typeof AuthenticatedDashboardRoute
   '/history': typeof AuthenticatedHistoryRoute
+  '/model': typeof AuthenticatedModelRoute
+  '/popular-products': typeof AuthenticatedPopularProductsRoute
+  '/profile': typeof AuthenticatedProfileRoute
   '/recommend': typeof AuthenticatedRecommendRoute
+  '/reports': typeof AuthenticatedReportsRoute
+  '/settings': typeof AuthenticatedSettingsRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -94,7 +135,12 @@ export interface FileRoutesById {
   '/_authenticated/analytics': typeof AuthenticatedAnalyticsRoute
   '/_authenticated/dashboard': typeof AuthenticatedDashboardRoute
   '/_authenticated/history': typeof AuthenticatedHistoryRoute
+  '/_authenticated/model': typeof AuthenticatedModelRoute
+  '/_authenticated/popular-products': typeof AuthenticatedPopularProductsRoute
+  '/_authenticated/profile': typeof AuthenticatedProfileRoute
   '/_authenticated/recommend': typeof AuthenticatedRecommendRoute
+  '/_authenticated/reports': typeof AuthenticatedReportsRoute
+  '/_authenticated/settings': typeof AuthenticatedSettingsRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -106,7 +152,12 @@ export interface FileRouteTypes {
     | '/analytics'
     | '/dashboard'
     | '/history'
+    | '/model'
+    | '/popular-products'
+    | '/profile'
     | '/recommend'
+    | '/reports'
+    | '/settings'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -116,7 +167,12 @@ export interface FileRouteTypes {
     | '/analytics'
     | '/dashboard'
     | '/history'
+    | '/model'
+    | '/popular-products'
+    | '/profile'
     | '/recommend'
+    | '/reports'
+    | '/settings'
   id:
     | '__root__'
     | '/'
@@ -127,7 +183,12 @@ export interface FileRouteTypes {
     | '/_authenticated/analytics'
     | '/_authenticated/dashboard'
     | '/_authenticated/history'
+    | '/_authenticated/model'
+    | '/_authenticated/popular-products'
+    | '/_authenticated/profile'
     | '/_authenticated/recommend'
+    | '/_authenticated/reports'
+    | '/_authenticated/settings'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -196,11 +257,46 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedHistoryRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
+    '/_authenticated/model': {
+      id: '/_authenticated/model'
+      path: '/model'
+      fullPath: '/model'
+      preLoaderRoute: typeof AuthenticatedModelRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/popular-products': {
+      id: '/_authenticated/popular-products'
+      path: '/popular-products'
+      fullPath: '/popular-products'
+      preLoaderRoute: typeof AuthenticatedPopularProductsRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/profile': {
+      id: '/_authenticated/profile'
+      path: '/profile'
+      fullPath: '/profile'
+      preLoaderRoute: typeof AuthenticatedProfileRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
     '/_authenticated/recommend': {
       id: '/_authenticated/recommend'
       path: '/recommend'
       fullPath: '/recommend'
       preLoaderRoute: typeof AuthenticatedRecommendRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/reports': {
+      id: '/_authenticated/reports'
+      path: '/reports'
+      fullPath: '/reports'
+      preLoaderRoute: typeof AuthenticatedReportsRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/settings': {
+      id: '/_authenticated/settings'
+      path: '/settings'
+      fullPath: '/settings'
+      preLoaderRoute: typeof AuthenticatedSettingsRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
   }
@@ -210,14 +306,24 @@ interface AuthenticatedRouteRouteChildren {
   AuthenticatedAnalyticsRoute: typeof AuthenticatedAnalyticsRoute
   AuthenticatedDashboardRoute: typeof AuthenticatedDashboardRoute
   AuthenticatedHistoryRoute: typeof AuthenticatedHistoryRoute
+  AuthenticatedModelRoute: typeof AuthenticatedModelRoute
+  AuthenticatedPopularProductsRoute: typeof AuthenticatedPopularProductsRoute
+  AuthenticatedProfileRoute: typeof AuthenticatedProfileRoute
   AuthenticatedRecommendRoute: typeof AuthenticatedRecommendRoute
+  AuthenticatedReportsRoute: typeof AuthenticatedReportsRoute
+  AuthenticatedSettingsRoute: typeof AuthenticatedSettingsRoute
 }
 
 const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
   AuthenticatedAnalyticsRoute: AuthenticatedAnalyticsRoute,
   AuthenticatedDashboardRoute: AuthenticatedDashboardRoute,
   AuthenticatedHistoryRoute: AuthenticatedHistoryRoute,
+  AuthenticatedModelRoute: AuthenticatedModelRoute,
+  AuthenticatedPopularProductsRoute: AuthenticatedPopularProductsRoute,
+  AuthenticatedProfileRoute: AuthenticatedProfileRoute,
   AuthenticatedRecommendRoute: AuthenticatedRecommendRoute,
+  AuthenticatedReportsRoute: AuthenticatedReportsRoute,
+  AuthenticatedSettingsRoute: AuthenticatedSettingsRoute,
 }
 
 const AuthenticatedRouteRouteWithChildren =

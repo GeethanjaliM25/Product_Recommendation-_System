@@ -70,7 +70,10 @@ function ReportsPage() {
   }
 
   function exportCsv() {
-    if (rows.length === 0) return toast.error("Nothing to export yet.");
+    if (rows.length === 0) {
+      toast.error("Nothing to export yet.");
+      return;
+    }
     const header = ["Customer", "Product code", "Product", "Score", "Confidence", "Saved at"];
     const body = rows.map((r) => [
       r.customer_id,
@@ -90,7 +93,10 @@ function ReportsPage() {
   }
 
   async function exportPdf() {
-    if (rows.length === 0) return toast.error("Nothing to export yet.");
+    if (rows.length === 0) {
+      toast.error("Nothing to export yet.");
+      return;
+    }
     const { default: JsPDF } = await import("jspdf");
     const doc = new JsPDF();
     doc.setFontSize(16);
