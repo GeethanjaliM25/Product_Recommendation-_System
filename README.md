@@ -1,4 +1,4 @@
- # 🛍️ AI Product Recommendation System 
+ # 🛍️ AI Product Recommendation System
  
 ![Python](https://img.shields.io/badge/Python-3.12-blue?style=for-the-badge&logo=python)
 ![TensorFlow](https://img.shields.io/badge/TensorFlow-Deep%20Learning-orange?style=for-the-badge&logo=tensorflow)
